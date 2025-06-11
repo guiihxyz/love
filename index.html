@@ -155,7 +155,6 @@
                 setTimeout(() => {
                     $('#menu').addClass('hidden').removeClass('cinematic-out');
                     $('#app').removeClass('hidden').addClass('cinematic-in');
-                    showSlide(0);
                 }, 700);
             });
         });
@@ -208,8 +207,10 @@
             function startSliderInterval() {
                 if (sliderInterval) clearInterval(sliderInterval);
                 sliderInterval = setInterval(function() {
-                    let next = (current + 1) % total;
-                    showSlide(next);
+                    if (!$('#app').hasClass('hidden')) {
+                        let next = (current + 1) % total;
+                        showSlide(next);
+                    }
                 }, 4000);
             }
 
