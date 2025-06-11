@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G + T 💞</title>
+    <link rel="shortcut icon" href="src/images/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: Inter, sans-serif;
+        }
+
+        #photo-slider, #photo-slider img {
+            user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        @keyframes cinematicIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.96) translateY(60px) blur(8px);
+                filter: blur(8px);
+            }
+            60% {
+                opacity: 1;
+                transform: scale(1.02) translateY(-8px) blur(0px);
+                filter: blur(0px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0) blur(0px);
+                filter: blur(0px);
+            }
+        }
+
+        @keyframes cinematicOut {
+            0% {
+                opacity: 1;
+                transform: scale(1) translateY(0) blur(0px);
+                filter: blur(0px);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.96) translateY(-60px) blur(8px);
+                filter: blur(8px);
+            }
+        }
+
+        .cinematic-in {
+            animation: cinematicIn 0.9s cubic-bezier(.4,2,.6,1) both;
+        }
+
+        .cinematic-out {
+            animation: cinematicOut 0.7s cubic-bezier(.4,2,.6,1) both;
+        }
+    </style>
+</head>
+<body class="antialised bg-black overflow-hidden">
+    <div class="cinematic-in" id="menu">
+        <main class="relative w-screen h-screen flex flex-col justify-center items-center bg-zinc-900 p-8">
+            <div class="text-center">
+                <h1 class="text-white text-2xl font-semibold mb-4 text-nowrap">estaremos juntos para sempre?</h1>
+               <div class="flex justify-center items-center gap-4">
+                    <button id="btn-sim" type="button"
+                        class="px-7 py-2 rounded-xl bg-pink-500 text-white font-bold shadow-lg border-2 border-pink-400 hover:bg-pink-400 hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                        Sim 💘
+                    </button>
+                    <button id="btn-nao" type="button"
+                        class="px-7 py-2 rounded-xl bg-zinc-800 text-red-600 font-bold shadow-lg border-2 border-red-600 hover:bg-zinc-900 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-600 z-50">
+                        Não 💔
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="hidden fade-in-up" id="app">
+        <main class="relative w-screen h-screen flex flex-col justify-between items-center bg-zinc-900 p-8">
+            <div class="pointer-events-none fixed inset-0 z-0" id="emoji-bg"></div>
+            <section class="w-96 relative z-10">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/39uMV1Ix79vlMNssVxACuU?utm_source=generator&theme=0" width="100%" height="90" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </section>
+            <section class="flex flex-col items-center gap-2">
+                <div class="relative z-10 flex flex-col items-center mb-6">
+                    <div id="photo-slider" class="relative w-[260px] h-[420px] rounded-2xl overflow-hidden shadow-2xl bg-zinc-800 outline outline-4 outline-zinc-800">
+                        <img src="src/images/photos/img1.jpg" alt="Foto 1" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-100 slider-img rounded-2xl" style="z-index:1;">
+                        <img src="src/images/photos/img2.jpg" alt="Foto 2" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 slider-img rounded-2xl" style="z-index:0;">
+                        <img src="src/images/photos/img3.jpg" alt="Foto 3" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 slider-img rounded-2xl" style="z-index:0;">
+                        <img src="src/images/photos/img4.jpg" alt="Foto 4" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 slider-img rounded-2xl" style="z-index:0;">
+                        <img src="src/images/photos/img5.jpg" alt="Foto 5" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 slider-img rounded-2xl" style="z-index:0;">
+                        <img src="src/images/photos/img6.jpg" alt="Foto 6" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 slider-img rounded-2xl" style="z-index:0;">
+                        <img src="src/images/photos/img7.jpg" alt="Foto 7" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 slider-img rounded-2xl" style="z-index:0;">
+                    </div>
+                    <div class="flex gap-2 mt-4 items-center justify-center">
+                        <button class="slider-dot w-3 h-3 rounded-full bg-zinc-500 transition-all duration-300" data-index="0"></button>
+                        <button class="slider-dot w-3 h-3 rounded-full bg-zinc-500 transition-all duration-300" data-index="1"></button>
+                        <button class="slider-dot w-3 h-3 rounded-full bg-zinc-500 transition-all duration-300" data-index="2"></button>
+                        <button class="slider-dot w-3 h-3 rounded-full bg-zinc-500 transition-all duration-300" data-index="3"></button>
+                        <button class="slider-dot w-3 h-3 rounded-full bg-zinc-500 transition-all duration-300" data-index="4"></button>
+                        <button class="slider-dot w-3 h-3 rounded-full bg-zinc-500 transition-all duration-300" data-index="5"></button>
+                        <button class="slider-dot w-3 h-3 rounded-full bg-zinc-500 transition-all duration-300" data-index="6"></button>
+                    </div>
+                </div>
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <h1 class="text-white text-3xl font-semibold mb-2.5">Eu te amo há:</h1>
+                    <div class="mb-6 px-1 py-1.5 text-sm sm:text-base md:text-lg bg-zinc-900 border border-zinc-800 rounded-xl shadow-xl text-nowrap">
+                        <span class="text font-medium bg-gradient-to-r from-pink-300 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent drop-shadow-md px-4 py-2 rounded-full" id="counter"></span>
+                    </div>
+                    <p class="text-zinc-500 max-w-sm sm:max-w-md">obrigado por ser essa pessoa tão doce, fofa e especial para mim. eu te amo muito 🥺❤️</p>
+                </div>
+            </section>
+            <section>
+                <span class="sr-only">nothing here</span>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            const $btnNao = $('#btn-nao');
+            let isFixed = false;
+
+            function moveButton() {
+                if (!isFixed) {
+                    // Só faz isso na primeira vez
+                    $btnNao.css('position', 'fixed');
+                    // Pega posição atual na tela
+                    const offset = $btnNao.offset();
+                    $btnNao.css({ left: offset.left, top: offset.top, margin: 0 });
+                    isFixed = true;
+                }
+                const btnWidth = $btnNao.outerWidth();
+                const btnHeight = $btnNao.outerHeight();
+                const padding = 16;
+                const maxX = $(window).width() - btnWidth - padding;
+                const maxY = $(window).height() - btnHeight - padding;
+                const newX = Math.random() * maxX;
+                const newY = Math.random() * maxY;
+                $btnNao.css({ left: newX + 'px', top: newY + 'px' });
+            }
+
+            $btnNao.on('mouseenter touchstart click', moveButton);
+
+            let $btnSim = $('#btn-sim');
+            $btnSim.on('click', function() {
+                $('#menu').removeClass('cinematic-in').addClass('cinematic-out');
+                setTimeout(() => {
+                    $('#menu').addClass('hidden').removeClass('cinematic-out');
+                    $('#app').removeClass('hidden').addClass('cinematic-in');
+                }, 700);
+            });
+        });
+
+        const startDate = new Date(2025, 2, 15, 20, 0, 0);
+
+        function plural(n, s) {
+            return n + ' ' + s + (n === 1 ? '' : (s === 'mês' ? 'es' : 's'));
+        }
+
+        function updateCounter() {
+            const now = new Date();
+            let diff = Math.floor((now - startDate) / 1000);
+
+            const months = Math.floor(diff / (30 * 24 * 60 * 60));
+            diff -= months * 30 * 24 * 60 * 60;
+
+            const days = Math.floor(diff / (24 * 60 * 60));
+            diff -= days * 24 * 60 * 60;
+
+            const hours = Math.floor(diff / (60 * 60));
+            diff -= hours * 60 * 60;
+
+            const minutes = Math.floor(diff / 60);
+            const seconds = diff - minutes * 60;
+
+            $('#counter').text(
+                `${plural(months, 'mês')}, ${plural(days, 'dia')}, ${plural(hours, 'hora')}, ${plural(minutes, 'minuto')} e ${plural(seconds, 'segundo')}`
+            );
+        }
+
+        $(function() {
+            updateCounter();
+            setInterval(updateCounter, 1000);
+
+            let current = 0;
+            const $imgs = $('.slider-img');
+            const $dots = $('.slider-dot');
+            const total = $imgs.length;
+            let sliderInterval = null;
+
+            function showSlide(idx) {
+                $imgs.css('opacity', 0).css('z-index', 0);
+                $imgs.eq(idx).css('opacity', 1).css('z-index', 1);
+                $dots.removeClass('bg-pink-400').addClass('bg-zinc-500');
+                $dots.eq(idx).removeClass('bg-zinc-500').addClass('bg-pink-400');
+                current = idx;
+            }
+
+            function startSliderInterval() {
+                if (sliderInterval) clearInterval(sliderInterval);
+                sliderInterval = setInterval(function() {
+                    let next = (current + 1) % total;
+                    showSlide(next);
+                }, 4000);
+            }
+
+            $dots.on('click', function() {
+                showSlide($(this).data('index'));
+                startSliderInterval();
+            });
+
+            let startX = null;
+            let isDragging = false;
+            let deltaX = 0;
+
+            $('#photo-slider')
+                .on('mousedown touchstart', function(e) {
+                    e.preventDefault();
+                    isDragging = true;
+                    deltaX = 0;
+                    startX = e.type === 'touchstart'
+                        ? e.originalEvent.touches[0].clientX
+                        : e.clientX;
+                });
+
+            $(document)
+                .on('mousemove touchmove', function(e) {
+                    if (!isDragging || startX === null) return;
+                    let clientX = e.type === 'touchmove'
+                        ? e.originalEvent.touches[0].clientX
+                        : e.clientX;
+                    deltaX = clientX - startX;
+                    if (e.type === 'touchmove') e.preventDefault();
+                })
+                .on('mouseup touchend', function(e) {
+                    if (!isDragging || startX === null) return;
+                    let clientX = e.type === 'touchend'
+                        ? e.originalEvent.changedTouches[0].clientX
+                        : e.clientX;
+                    deltaX = clientX - startX;
+                    if (Math.abs(deltaX) > 40) {
+                        if (deltaX < 0) {
+                            let next = (current + 1) % total;
+                            showSlide(next);
+                            startSliderInterval();
+                        } else {
+                            let prev = (current - 1 + total) % total;
+                            showSlide(prev);
+                            startSliderInterval();
+                        }
+                    }
+                    isDragging = false;
+                    startX = null;
+                    deltaX = 0;
+                });
+
+            showSlide(0);
+            startSliderInterval();
+
+            const emojis = ['💞','💖','💗','💓','💘','💕','❤️','🥰','😍','✨'];
+            const emojiBg = document.getElementById('emoji-bg');
+
+            function createEmoji() {
+                const emoji = document.createElement('span');
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.className = "absolute text-2xl md:text-3xl select-none pointer-events-none";
+
+                emoji.style.left = Math.random() * 100 + "vw";
+                emoji.style.top = "-2em";
+                emoji.style.opacity = Math.random() * 0.5 + 0.5;
+                emoji.style.transition = "transform 0.2s";
+
+                const duration = Math.random() * 3 + 5;
+                const translateX = (Math.random() - 0.5) * 80;
+
+                emojiBg.appendChild(emoji);
+
+                setTimeout(() => {
+                    emoji.style.transition = `top ${duration}s linear, left ${duration}s linear, opacity 0.5s`;
+                    emoji.style.top = "110vh";
+                    emoji.style.left = `calc(${emoji.style.left} + ${translateX}px)`;
+                    emoji.style.opacity = 0.7;
+                }, 10);
+
+                setTimeout(() => emoji.remove(), duration * 1000 + 1000);
+            }
+
+            setInterval(createEmoji, 700);
+        });
+    </script>
+</body>
+</html>
