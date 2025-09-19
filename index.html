@@ -161,7 +161,11 @@
             });
         });
 
-        const startDate = new Date(2025, 2, 15, 0, 0, 0);
+        let startDate = new Date(2025, 2, 15, 0, 0, 0);
+
+startDate = startDate.toLocaleString("pt-BR", { 
+  timeZone: "America/Sao_Paulo" 
+}
 
         function plural(n, s) {
             return n + ' ' + s + (n === 1 ? '' : (s === 'mês' ? 'es' : 's'));
